@@ -85,8 +85,8 @@ def call(Map configMap){       //call is deafualy function
                 }
                 steps{
                     build job: "../${component}-cd", parameters: [      //backend-cd -->give same name your pipeline as well.
-                        (name: 'version', value: "$appVersion"),
-                        (name: 'ENVIRONMENT', value: "dev"),    //here it fix, dev.
+                        string(name: 'version', value: "$appVersion"),
+                        string(name: 'ENVIRONMENT', value: "dev"),    //here it fix, dev.
                         ], wait: true   //means, if cd sucess then only CI will sucess. otherwise pipeline fails.
                 }
             }
